@@ -1,0 +1,25 @@
+Game Structure Suggestions:
+
+1. Keep logic separated by responsibility.
+   - `circle.py` holds the circle data model and geometry helpers.
+   - `physics.py` computes motion, collision resolution, gravity, green merging, and red splitting.
+   - `controller.py` processes user input and state changes.
+   - `view.py` handles drawing and the click-count table.
+   - `main.py` composes the loop, model, and subsystems.
+
+2. Use a dedicated `game_state.py` for the mutable game state.
+   - Implemented with `GameState` inheriting from `GameModel` and centralizing color-count helpers.
+
+3. Keep physics updates deterministic.
+   - Physics uses `dt` consistently for position and velocity updates.
+   - `PhysicsEngine` is organized to separate gravity, movement, collision, and merge behavior.
+
+4. Use constants and configuration values in one file.
+   - Implemented in `config.py` for colors, playfield layout, physics tuning, and merge thresholds.
+
+5. Add tests for collision and merge behavior.
+   - Added `tests/test_circle.py` and `tests/test_physics.py` to verify red split behavior and green merging.
+
+6. Use a dedicated game orchestrator class.
+   - `game.py` now contains `Game`, which wires together the model, controller, renderer, and physics engine.
+   - This enables future changes such as pause/resume, scene/state transitions, or additional game systems without altering `main.py`.

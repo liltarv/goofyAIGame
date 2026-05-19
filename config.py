@@ -1,0 +1,26 @@
+import math
+
+COLOR_MAP = {
+    "red": (220, 60, 60),
+    "green": (80, 200, 80),
+    "blue": (80, 140, 220),
+    "yellow": (240, 220, 80),
+    "purple": (180, 100, 220),
+}
+DEFAULT_COLORS = ["red", "green", "blue", "yellow", "purple"]
+
+PLAY_WIDTH = 1000
+PLAY_HEIGHT = 700
+TABLE_WIDTH = 240
+INITIAL_CIRCLE_COUNT = 10
+
+MIN_RADIUS = 20.0
+MAX_RADIUS = 45.0
+MIN_RED_SPEED = 70.0
+MAX_RED_SPEED = 130.0
+MIN_RED_SPLIT_RADIUS = 22.0
+MAX_RED_SPLIT_COUNT = 6
+GREEN_MASS_MULTIPLIER = 5.0
+GRAVITY_CONSTANT = 22000.0
+MERGE_DISTANCE = 50.0
+MERGE_HOLD_TIME = 2.0

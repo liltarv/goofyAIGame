@@ -1,0 +1,36 @@
+Goofy AI game:
+
+This app is a simple game implemented using pygame that has the following features:
+
+1. The user sees different colored circles of different sizes (within a reasonable range so that, initially, there are at least 7 circles on the screen) on the screen. These circles are clickable.
+
+2. A table is off to the right of the screen that keeps track of how many times each color has been clicked. 
+
+3. The red circles will drift randomly in a direction. When they collide with another circle of any color or the wall, they will change direction.
+
+4. The green circles have a large mass proportional to the area of the circle. They each attract other green circles in accordance with Newton’s Law of Gravitation. 
+
+5. If a red circle collides with a green circle, the red circle should split into multiple smaller red circles; the amount of red circles is proportional to the area of the red circle. 
+
+6. If the distance between two green circles is smaller than some small distance threshold for more than 2 seconds, they merge into a larger green circle with area equal to the sum of the areas of the two initial green circles. 
+
+7. Whenever a circle is clicked, it should disappear. When the key “x” is pressed, a new circle should spawn in somewhere where they won’t collide with another circle. 
+
+THINGS TO CONSIDER WHEN IMPLEMENTING:
+
+-Class Structure: Each feature/functionality should be separated into a different class. Ex: a class for drawing (Draw), a class for running physics calculations (Physics), a class for handling user input (Controller), etc. Another suggestion that should tell you what kinds of classes should be present: a Circle class that includes info like position, color, mass, velocity, etc.
+
+-Pygame: The program should use a single, mutable Model that defines the circle positions, game state, and nearly all other mutable info (like # circles clicked of each color) during one runtime. 
+
+-Main loop: In general, the program should first register input, determine what should be changed (positions of circles, for example), and then draw whatever change has been made with the model. 
+
+-To handle all physics calculations, use delta time, updating the acceleration acting on each body using newton’s second law and using v_f=v_i+a*dt to update the velocity and x_f=x_i + v*dt to update position. Consider the poisson invarient. 
+
+Again, tasks should be split into DIFFERENT CLASSES, along with different functions and helper-functions. The code should be clear and readable. Functions should describe the input data types and purpose of the function. If a function is too large or complex, it should be split into multiple functions. 
+
+There should be a file in the program that then uses instances of these classes to make high-level actions (primarily by calling lower-level functions from other classes).
+
+IMPORTANT:
+If there are ANY suggestions to improve the STRUCTURE of the program (ordering classes and functionality, etc), PLEASE inform me.
+
+
